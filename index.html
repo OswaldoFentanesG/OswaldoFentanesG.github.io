@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Oswaldo Fentanes | Telecom & Cloud Data</title>
+    
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --text-main: #c5c6c7;
+            --text-header: #66fcf1;
+            --accent: #45a29e;
+            --azure-color: #0078d4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* === HEADER === */
+        header {
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            background: linear-gradient(180deg, rgba(11,12,16,1) 0%, rgba(31,40,51,0.5) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--text-header);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover { transform: scale(1.05); }
+
+        h1 { color: #fff; font-size: 3rem; margin: 0; letter-spacing: 1px; }
+
+        /* Efecto máquina de escribir */
+        .typing-effect {
+            border-right: 3px solid var(--text-header);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.75s step-end infinite;
+        }
+        @keyframes blink { 50% { border-color: transparent; } }
+
+        h2 {
+            color: var(--text-header);
+            font-size: 2rem;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bio-text { max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; }
+
+        .badges-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+        .badge {
+            background-color: rgba(102, 252, 241, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--text-header);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .badge.azure { border-color: var(--azure-color); color: var(--azure-color); background-color: rgba(0, 120, 212, 0.1); }
+
+        /* === SECCIONES COMUNES === */
+        .section-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { color: #fff; font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 40px; }
+
+        /* === GRID DE PORTAFOLIO (CODE) === */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--text-header); }
+        .card h3 { color: #fff; margin-top: 0; }
+        .tech-stack { margin-top: 15px; font-size: 0.85rem; font-family: 'Courier New', monospace; color: var(--accent); margin-bottom: 20px;}
+
+        .btn-project {
+            text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 0.9rem; font-weight: bold;
+            text-align: center; transition: 0.3s; display: inline-block; margin-right: 10px;
+        }
+        .btn-code { border: 1px solid var(--text-header); color: var(--text-header); }
+        .btn-code:hover { background: var(--text-header); color: #000; }
+
+        /* === NUEVA SECCIÓN: TRAYECTORIA (TIMELINE) === */
+        .timeline-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 25px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        /* El puntito de la línea de tiempo */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--text-header);
+            border-radius: 50%;
+        }
+
+        .timeline-date { color: var(--text-header); font-family: 'Courier New', monospace; font-size: 0.9rem; margin-bottom: 5px; display: block;}
+        .timeline-role { color: #fff; font-size: 1.3rem; margin: 0 0 5px 0; }
+        .timeline-company { color: #aaa; font-style: italic; margin-bottom: 10px; }
+        .timeline-desc { margin: 0; color: #ddd; }
+
+        /* === FOOTER === */
+        footer { text-align: center; padding: 50px 20px; background-color: #050505; margin-top: 60px; border-top: 1px solid #333; }
+        .btn-contact { display: inline-block; background-color: transparent; border: 2px solid var(--text-header); color: var(--text-header); padding: 10px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 20px; transition: background 0.3s, color 0.3s; }
+        .btn-contact:hover { background-color: var(--text-header); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="perfil.jpg" alt="Oswaldo Fentanes" class="profile-img">
+
+        <h1>Hola, soy Oswaldo Fentanes</h1>
+        <h2 id="typewriter" class="typing-effect"></h2>
+        
+        <p class="bio-text">
+            Transformo infraestructura física en inteligencia de datos. <br>
+            Ingeniero con base sólida en redes y electrónica, evolucionando hacia Data Science y Cloud Computing.
+        </p>
+
+        <div class="badges-container">
+            <span class="badge azure">☁️ Azure DP-900 Certified</span>
+            <span class="badge">🛡️ Fortinet Security</span>
+            <span class="badge">📡 Ing. Telecomunicaciones</span>
+            <span class="badge">📊 Maestría en Datos (En curso)</span>
+            <span class="badge">🇺🇸 Inglés B2</span>
+        </div>
+    </header>
+
+    <div class="section-container">
+        <h2 class="section-title">Portafolio de Ciencia de Datos</h2>
+        
+        <div class="grid">
+            <article class="card">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:start;">
+                        <h3>Análisis Predictivo & ML</h3>
+                        <span style="font-size:1.2rem;">📈</span>
+                    </div>
+                    <p>Desarrollo de modelos predictivos y análisis exploratorio (EDA) de datasets complejos. Enfoque en limpieza de datos y generación de insights.</p>
+                    <div class="tech-stack">Python • Pandas • Scikit-learn • Jupyter</div>
+                </div>
+                <div>
+                    <a href="https://github.com/" target="_blank" class="btn-project btn-code">Ver Código 😺</a>
+                </div>
+            </article>
+
+            <article class="card" style="border: 1px dashed #333; background: transparent; justify-content: center; align-items: center; min-height: 250px;">
+                <div style="text-align: center; color: #555;">
+                    <span style="font-size: 2rem; display: block; margin-bottom: 10px;">🔜</span>
+                    <p>Próximo Proyecto de Maestría<br>en desarrollo...</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="section-container" style="background-color: rgba(31, 40, 51, 0.3); border-radius: 15px;">
+        <h2 class="section-title">Trayectoria Profesional</h2>
+        
+        <div class="timeline-item">
+            <span class="timeline-date">Nov 2024 - Mayo 2025</span>
+            <h3 class="timeline-role">Ingeniero de Servicio (Servicio Social)</h3>
+            <div class="timeline-company">ISED - Automatización y Control</div>
+            <p class="timeline-desc">
+                Mantenimiento preventivo de equipos y control de automatización de edificios. Implementación de protocolos de ciberseguridad y gestión de redes.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-date">Oct 2023 - Oct 2024</span>
+            <h3 class="timeline-role">Analista de Inventarios & Logística</h3>
+            <div class="timeline-company">Grupo Amigo</div>
+            <p class="timeline-desc">
+                Gestión y reporte de inventarios mediante análisis de productos. Optimización de procesos para el control de insumos integrados.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-date">Mar 2022 - Dic 2022</span>
+            <h3 class="timeline-role">Gestor de Base de Datos</h3>
+            <div class="timeline-company">Licitacom</div>
+            <p class="timeline-desc">
+                Registro y estructuración de licitaciones gubernamentales en bases de datos corporativas para análisis de oportunidades.
+            </p>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 class="section-title">Stack Tecnológico</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <span style="font-size: 1.5rem; color: #fff;" title="Python">🐍</span>
+            <span style="font-size: 1.5rem; color: #fff;" title="SQL">🗄️</span>
+            <span style="font-size: 1.5rem; color: #fff;" title="C++">⚙️</span>
+            <span style="font-size: 1.5rem; color: #fff;" title="JavaScript">🌐</span>
+            <span style="font-size: 1.5rem; color: #fff;" title="Azure">☁️</span>
+        </div>
+    </div>
+
+    <footer>
+        <h2 style="color: #fff;">¿Hablamos?</h2>
+        <p>Estoy disponible para proyectos de Datos, Nube y Redes.</p>
+        <p>📍 Veracruz, Ver.</p>
+        <a href="mailto:oswaldo.fentanes.lb@gmail.com" class="btn-contact">Enviar Correo</a>
+        <br><br>
+        <small style="color: #555;">© 2024 Oswaldo Fentanes.</small>
+    </footer>
+
+    <script>
+        const text = "Ingeniero en Telecomunicaciones & Cloud Data";
+        const speed = 100;
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
+
+</body>
+</html>
