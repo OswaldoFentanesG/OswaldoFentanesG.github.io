@@ -49,7 +49,6 @@
 
         h1 { color: #fff; font-size: 3rem; margin: 0; letter-spacing: 1px; }
 
-        /* Efecto máquina de escribir */
         .typing-effect {
             border-right: 3px solid var(--text-header);
             white-space: nowrap;
@@ -86,7 +85,7 @@
         .section-title { color: #fff; font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 40px; }
 
         /* === GRID DE PORTAFOLIO (CODE) === */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; align-items: start; }
 
         .card {
             background-color: var(--card-bg);
@@ -100,40 +99,27 @@
         .card h3 { color: #fff; margin-top: 0; }
         .tech-stack { margin-top: 15px; font-size: 0.85rem; font-family: 'Courier New', monospace; color: var(--accent); margin-bottom: 20px;}
 
+        /* ESTILO DE LOS BOTONES */
         .btn-project {
-            text-decoration: none; padding: 8px 15px; border-radius: 5px; font-size: 0.9rem; font-weight: bold;
-            text-align: center; transition: 0.3s; display: inline-block; margin-right: 10px;
+            text-decoration: none; padding: 10px 15px; border-radius: 5px; font-size: 0.9rem; font-weight: bold;
+            text-align: center; transition: 0.3s; display: block; margin-bottom: 0;
         }
+        .btn-project:hover { opacity: 0.8; transform: translateX(5px); }
+        
         .btn-code { border: 1px solid var(--text-header); color: var(--text-header); }
         .btn-code:hover { background: var(--text-header); color: #000; }
 
-        /* === NUEVA SECCIÓN: TRAYECTORIA (TIMELINE) === */
-        .timeline-item {
-            border-left: 2px solid var(--accent);
-            padding-left: 25px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        /* El puntito de la línea de tiempo */
+        /* === TRAYECTORIA === */
+        .timeline-item { border-left: 2px solid var(--accent); padding-left: 25px; margin-bottom: 40px; position: relative; }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            background-color: var(--bg-color);
-            border: 2px solid var(--text-header);
-            border-radius: 50%;
+            content: ''; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px;
+            background-color: var(--bg-color); border: 2px solid var(--text-header); border-radius: 50%;
         }
-
         .timeline-date { color: var(--text-header); font-family: 'Courier New', monospace; font-size: 0.9rem; margin-bottom: 5px; display: block;}
         .timeline-role { color: #fff; font-size: 1.3rem; margin: 0 0 5px 0; }
         .timeline-company { color: #aaa; font-style: italic; margin-bottom: 10px; }
         .timeline-desc { margin: 0; color: #ddd; }
 
-        /* === FOOTER === */
         footer { text-align: center; padding: 50px 20px; background-color: #050505; margin-top: 60px; border-top: 1px solid #333; }
         .btn-contact { display: inline-block; background-color: transparent; border: 2px solid var(--text-header); color: var(--text-header); padding: 10px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 20px; transition: background 0.3s, color 0.3s; }
         .btn-contact:hover { background-color: var(--text-header); color: #000; }
@@ -144,15 +130,12 @@
 
     <header>
         <img src="perfil.jpg" alt="Oswaldo Fentanes" class="profile-img">
-
         <h1>Hola, soy Oswaldo Fentanes</h1>
         <h2 id="typewriter" class="typing-effect"></h2>
-        
         <p class="bio-text">
             Transformo infraestructura física en inteligencia de datos. <br>
             Ingeniero con base sólida en redes y electrónica, evolucionando hacia Data Science y Cloud Computing.
         </p>
-
         <div class="badges-container">
             <span class="badge azure">☁️ Azure DP-900 Certified</span>
             <span class="badge">🛡️ Fortinet Security</span>
@@ -166,26 +149,61 @@
         <h2 class="section-title">Portafolio de Ciencia de Datos</h2>
         
         <div class="grid">
+            
             <article class="card">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:start;">
-                        <h3>Análisis Predictivo & ML</h3>
-                        <span style="font-size:1.2rem;">📈</span>
+                        <h3>Ciencia de Datos con Python</h3>
+                        <span style="font-size:1.5rem;">🐍</span>
                     </div>
-                    <p>Desarrollo de modelos predictivos y análisis exploratorio (EDA) de datasets complejos. Enfoque en limpieza de datos y generación de insights.</p>
-                    <div class="tech-stack">Python • Pandas • Scikit-learn • Jupyter</div>
+                    <p>Análisis exploratorio y modelado de datos en la nube. Uso de librerías para manipulación estadística.</p>
+                    <div class="tech-stack">Python • Pandas • Matplotlib • Colab</div>
                 </div>
-                <div>
-                    <a href="https://github.com/" target="_blank" class="btn-project btn-code">Ver Código 😺</a>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                    
+                    <a href="https://colab.research.google.com/drive/1IKhlqHpI9hAGQDfoi9uNRrePGB_kdwvW?usp=sharing" target="_blank" class="btn-project" style="background-color: #F9AB00; color: #000;">
+                        🟧 1. Presentacion_de_resultados
+                    </a>
+
+                    <a href="https://colab.research.google.com/drive/1GMOo-M6e5TAUalqG2LjnkeSNVt9Eaq04?usp=sharing" target="_blank" class="btn-project" style="background-color: #F9AB00; color: #000;">
+                        🟧 2. DB_inquilinos
+                    </a>
+
+                    <a href="https://colab.research.google.com/drive/1ZPKfuLCGMmpt_G__OvATRizRMT8TbNAY?usp=sharing" target="_blank" class="btn-project" style="background-color: #F9AB00; color: #000;">
+                        🟧 3.Python_Pandas
+                    </a>
+
+                    <a href="https://colab.research.google.com/drive/1X6pS31hdHxcbop5L0QAmiqMv4TM9PC3U?usp=sharing" target="_blank" class="btn-project" style="background-color: #F9AB00; color: #000;">
+                        🟧 4. Análisis_exploratorio_datos.
+                    </a>
+
                 </div>
             </article>
 
-            <article class="card" style="border: 1px dashed #333; background: transparent; justify-content: center; align-items: center; min-height: 250px;">
-                <div style="text-align: center; color: #555;">
-                    <span style="font-size: 2rem; display: block; margin-bottom: 10px;">🔜</span>
-                    <p>Próximo Proyecto de Maestría<br>en desarrollo...</p>
+            <article class="card">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:start;">
+                        <h3>Análisis Estadístico en R</h3>
+                        <span style="font-size:1.5rem; color:#276DC3; font-weight:bold;">R</span>
+                    </div>
+                    <p>Procesamiento estadístico y generación de reportes dinámicos. Scripting para varianza y regresiones.</p>
+                    <div class="tech-stack">R Studio • Tidyverse • ggplot2</div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                    
+                    <a href="https://github.com/OswaldoFentanesG/OswaldoFentanesG.github.io/blob/main/Uso_básico_R.R" target="_blank" class="btn-project" style="background-color: #276DC3; color: #fff;">
+                        🔵 1. Uso_basico_R
+                    </a>
+
+                    <a href="https://github.com/OswaldoFentanesG/OswaldoFentanesG.github.io/blob/main/Uso_básico_R.R" target="_blank" class="btn-project" style="background-color: #276DC3; color: #fff;">
+                        🔵 2. Proyecto_R
+                    </a>
+
                 </div>
             </article>
+            
         </div>
     </div>
 
@@ -197,7 +215,7 @@
             <h3 class="timeline-role">Ingeniero de Servicio (Servicio Social)</h3>
             <div class="timeline-company">ISED - Automatización y Control</div>
             <p class="timeline-desc">
-                Mantenimiento preventivo de equipos y control de automatización de edificios. Implementación de protocolos de ciberseguridad y gestión de redes.
+                Mantenimiento preventivo de equipos y control de automatización de edificios. Implementación de protocolos de ciberseguridad.
             </p>
         </div>
 
@@ -206,7 +224,7 @@
             <h3 class="timeline-role">Analista de Inventarios & Logística</h3>
             <div class="timeline-company">Grupo Amigo</div>
             <p class="timeline-desc">
-                Gestión y reporte de inventarios mediante análisis de productos. Optimización de procesos para el control de insumos integrados.
+                Gestión y reporte de inventarios mediante análisis de productos. Optimización de procesos.
             </p>
         </div>
 
@@ -215,7 +233,7 @@
             <h3 class="timeline-role">Gestor de Base de Datos</h3>
             <div class="timeline-company">Licitacom</div>
             <p class="timeline-desc">
-                Registro y estructuración de licitaciones gubernamentales en bases de datos corporativas para análisis de oportunidades.
+                Registro y estructuración de licitaciones gubernamentales en bases de datos corporativas.
             </p>
         </div>
     </div>
